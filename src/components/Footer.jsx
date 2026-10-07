@@ -11,14 +11,17 @@ function Footer() {
 
                     <div className="footer-brand">
 
-                        <a href="#home" className="footer-logo">
-                            GECH
+                        <a href="#home" className="logo">
+                            <img
+                                src="images/logo.jpg"
+                                alt="GECH Logo"
+                            />
                         </a>
 
-                        <p>
-                            Computer Science Student @AAA & FullStack Developer
-                        </p>
-
+                        <pre><p>
+                            FullStack Developer &
+                            Computer Science Student @AAU
+                        </p></pre>
                         <p className="footer-description">
                             Building practical software, learning continuously,
                             and turning ideas into useful digital solutions.

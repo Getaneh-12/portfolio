@@ -12,13 +12,11 @@ function Navbar() {
 
             <div className="navbar-container">
 
-                {/* Logo */}
-                <a
-                    href="#home"
-                    className="navbar-logo"
-                    onClick={closeMenu}
-                >
-                    GECH
+                <a href="#home" className="logo">
+                    <img
+                        src="images/logo.jpg"
+                        alt="GECH Logo"
+                    />
                 </a>
 
 

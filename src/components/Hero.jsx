@@ -21,8 +21,10 @@ function Hero() {
                     </h1>
 
                     <h2>
-                        Full-Stack Developer
-                        <span> & Computer Science Student @AAU</span>
+                        <span>
+                            Full-Stack Developer
+                            & Computer Science Student @AAU
+                        </span>
                     </h2>
 
                     <p className="hero-description">
