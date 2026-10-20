@@ -37,8 +37,8 @@ function Hero() {
                             <span>→</span>
                         </a>
                         <a
-                            href="/Getaneh_Dachew_CV.pdf"
-                            download="Getaneh_Dachew_CV.pdf"
+                            href="/Getaneh_CV.pdf"
+                            download="Getaneh_CV.pdf"
                             className="download-cv-btn"
                         >
                             <span>Download CV</span>
