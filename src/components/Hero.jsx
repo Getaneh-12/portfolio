@@ -38,9 +38,15 @@ function Hero() {
                         </a>
 
 
-                        <a href="/Getaneh_CV.pdf" download="Getaneh_CV.pdf">
+
+                        <a
+                            href="/Getaneh_CV.pdf"
+                            download="Getaneh_CV.pdf"
+                            className="download-cv"
+                        >
                             Download CV
                         </a>
+
 
 
                         <a
