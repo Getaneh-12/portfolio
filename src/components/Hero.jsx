@@ -38,7 +38,7 @@ function Hero() {
                         </a>
 
 
-                        <a href="/Getaneh_cv.pdf" download="Getaneh_cv.pdf">
+                        <a href="/Getaneh_CV.pdf" download="Getaneh_CV.pdf">
                             Download CV
                         </a>
 
