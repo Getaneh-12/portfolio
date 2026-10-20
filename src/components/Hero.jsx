@@ -36,14 +36,15 @@ function Hero() {
                             View My Projects
                             <span>→</span>
                         </a>
+
                         <a
-                            href="/Getaneh_CV.pdf"
-                            download="Getaneh_CV.pdf"
-                            className="download-cv-btn"
+                            href="/Getaneh_cv.pdf"
+                            download="Getaneh-CV.pdf"
+                            className="cv-download-button"
                         >
-                            <span>Download CV</span>
-                            <span aria-hidden="true">↓</span>
+                            Download CV ↓
                         </a>
+
                         <a
                             href="#contact"
                             className="secondary-button"
