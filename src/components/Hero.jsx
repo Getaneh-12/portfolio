@@ -6,12 +6,6 @@ function Hero() {
             <div className="hero-container">
 
                 <div className="hero-content">
-
-                    <div className="hero-status">
-                        <span></span>
-                        Available for opportunities
-                    </div>
-
                     <p className="hero-small-text">
                         HELLO, I'M
                     </p>
@@ -42,7 +36,14 @@ function Hero() {
                             View My Projects
                             <span>→</span>
                         </a>
-
+                        <a
+                            href="/Getaneh_Dachew_CV.pdf"
+                            download="Getaneh_Dachew_CV.pdf"
+                            className="download-cv-btn"
+                        >
+                            <span>Download CV</span>
+                            <span aria-hidden="true">↓</span>
+                        </a>
                         <a
                             href="#contact"
                             className="secondary-button"

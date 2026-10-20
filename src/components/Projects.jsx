@@ -1,220 +1,296 @@
+
+import { useState, useEffect } from "react";
+
+const projects = [
+    {
+        number: "01",
+        title: "Hena Electronics",
+        category: "FULL-STACK E-COMMERCE",
+        description:
+            "A full-stack electronics storefront with a protected admin dashboard for managing products, images, availability, and promotions.",
+        details:
+            "Built to support an electronics store with a customer-facing storefront and administrative product management. The project demonstrates frontend development, backend integration, database usage, and cloud image handling.",
+        technologies: [
+            "React",
+            "Node.js",
+            "Express",
+            "MySQL",
+            "Cloudinary",
+            "JWT",
+        ],
+        image: "/images/hena-electronics.png",
+        imageAlt: "Hena Electronics storefront screenshot",
+        github: "https://github.com/Getaneh-12/hena-electronics",
+        live: "https://hena-electronics.onrender.com/",
+        featured: true,
+    },
+    {
+        number: "02",
+        title: "JobTrack",
+        category: "PRODUCTIVITY WEB APP",
+        description:
+            "A job application tracker for organizing applications, interviews, reminders, and important job-search details.",
+        details:
+            "Designed to make job searching easier by bringing application records, interview tracking, and reminders into one responsive interface.",
+        technologies: [
+            "React",
+            "Vite",
+            "JavaScript",
+            "CSS",
+        ],
+        image: "/images/jobtrack.png",
+        imageAlt: "JobTrack application screenshot",
+        github: "https://github.com/Getaneh-12/Jobtrack",
+        live: "https://getaneh-12.github.io/Jobtrack/",
+        featured: false,
+    },
+    {
+        number: "03",
+        title: "Weather App",
+        category: "API-POWERED WEB APP",
+        description:
+            "A weather application for searching cities and viewing current conditions, a five-day forecast, and local time.",
+        details:
+            "This project integrates weather data into a user-friendly interface, demonstrating API consumption, JavaScript logic, and responsive web design.",
+        technologies: [
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "Open-Meteo API",
+        ],
+        image: "/images/Weather_app.png",
+        imageAlt: "Weather application screenshot",
+        github: "https://github.com/Getaneh-12/Weather_app",
+        live: "https://getaneh-12.github.io/Weather_app/",
+        featured: false,
+    },
+];
+
 function Projects() {
-    const projects = [
-        {
-            number: "01",
-            title: "Hena Electronics",
-            category: "Full-Stack E-Commerce",
-            description:
-                "A full-stack e-commerce platform developed for an electronics store to showcase and manage smartphones, laptops, and accessories. The system includes a responsive customer storefront and a protected admin dashboard for managing products, images, availability, and promotions.",
-            technologies: [
-                "React",
-                "Vite",
-                "Node.js",
-                "Express",
-                "MySQL",
-                "Cloudinary",
-                "JWT"
-            ],
-            className: "featured-project",
-            visual: "hena",
-            image: "/images/hena-electronics.png",
-            github:
-                "https://github.com/Getaneh-12/hena-electronics",
-            live:
-                "https://hena-electronics.onrender.com/"
-        },
+    const [selectedProject, setSelectedProject] = useState(null);
 
-        {
-            number: "02",
-            title: "JobTrack",
-            category: "Job Management",
-            description:
-                "A responsive job application tracking system designed to help users organize job applications, interviews, reminders, and important application information in one place.",
-            technologies: [
-                "React",
-                "Vite",
-                "JavaScript",
-                "CSS"
-            ],
-            className: "",
-            visual: "jobtrack",
-            image: "/images/jobtrack.png",
-            github:
-                "https://github.com/Getaneh-12/Jobtrack",
-            live:
-                "https://getaneh-12.github.io/Jobtrack/"
-        },
+    useEffect(() => {
+        if (!selectedProject) return;
 
-        {
-            number: "03",
-            title: "Weather App",
-            category: "Web Application",
-            description:
-                "A weather application that allows users to search for cities and view current weather conditions, a five-day forecast, local time, and location-based weather information.",
-            technologies: [
-                "JavaScript",
-                "HTML",
-                "CSS",
-                "Open-Meteo API"
-            ],
-            className: "",
-            visual: "weather",
-            image: "/images/Weather_app.png",
-            github:
-                "https://github.com/Getaneh-12/Weather_app",
-            live:
-                "https://getaneh-12.github.io/Weather_app/"
+        function handleKeyDown(event) {
+            if (event.key === "Escape") {
+                setSelectedProject(null);
+            }
         }
-    ];
+
+        document.addEventListener("keydown", handleKeyDown);
+
+        const previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown);
+            document.body.style.overflow = previousOverflow;
+        };
+    }, [selectedProject]);
 
     return (
-        <section
-            className="projects section"
-            id="projects"
-        >
+        <section className="projects section" id="projects">
             <div className="section-container">
 
                 {/* Section Heading */}
                 <div className="section-heading">
-                    <p>MY WORK</p>
+                    <p>SELECTED WORK</p>
 
-                    <h2>
-                        Featured Projects
-                    </h2>
+                    <h2>Projects I've Built</h2>
+
+                    <span className="projects-intro">
+                        Real projects, practical problem-solving, and
+                        technologies I've worked with.
+                    </span>
                 </div>
 
-                {/* Projects */}
+                {/* Projects Grid */}
                 <div className="projects-grid">
-
                     {projects.map((project) => (
                         <article
-                            className={`project-card ${project.className}`}
+                            className={`project-card ${project.featured ? "featured-project" : ""
+                                }`}
                             key={project.number}
                         >
 
-                            {/* Project Visual */}
-                            <div
-                                className={`project-visual ${project.visual}`}
-                            >
+                            {/* Project Screenshot */}
+                            <div className="project-visual">
+                                <div className="project-visual-top">
+                                    <span className="project-number">
+                                        {project.number}
+                                    </span>
 
-                                {/* Project Number */}
-                                <span className="project-number">
-                                    {project.number}
-                                </span>
+                                    <span className="project-type-label">
+                                        {project.category}
+                                    </span>
+                                </div>
 
-                                {/* Hena Electronics Screenshot */}
-                                {project.visual === "hena" && (
+                                <button
+                                    type="button"
+                                    className="project-image-button"
+                                    onClick={() =>
+                                        setSelectedProject(project)
+                                    }
+                                    aria-label={`View details for ${project.title}`}
+                                >
                                     <img
                                         src={project.image}
-                                        alt={`${project.title} project screenshot`}
+                                        alt={project.imageAlt}
                                         className="project-screenshot"
+                                        loading="lazy"
                                     />
-                                )}
 
-                                {/* JobTrack Screenshot */}
-                                {project.visual === "jobtrack" && (
-                                    <img
-                                        src={project.image}
-                                        alt={`${project.title} project screenshot`}
-                                        className="project-screenshot"
-                                    />
-                                )}
-
-                                {/* Weather App Screenshot */}
-                                {project.visual === "weather" && (
-                                    <img
-                                        src={project.image}
-                                        alt={`${project.title} project screenshot`}
-                                        className="project-screenshot"
-                                    />
-                                )}
-
+                                    <span className="project-image-overlay">
+                                        View project details
+                                        <span aria-hidden="true">↗</span>
+                                    </span>
+                                </button>
                             </div>
 
-                            {/* Project Content */}
+                            {/* Project Information */}
                             <div className="project-content">
-
-                                {/* Category */}
                                 <p className="project-category">
                                     {project.category}
                                 </p>
 
-                                {/* Title */}
-                                <h3>
-                                    {project.title}
-                                </h3>
+                                <h3>{project.title}</h3>
 
-                                {/* Description */}
                                 <p className="project-description">
                                     {project.description}
                                 </p>
 
                                 {/* Technologies */}
-                                <div className="project-technologies">
-
+                                <div
+                                    className="project-technologies"
+                                    aria-label="Technologies used"
+                                >
                                     {project.technologies.map(
-                                        (technology, index) => (
-                                            <span key={index}>
+                                        (technology) => (
+                                            <span key={technology}>
                                                 {technology}
                                             </span>
                                         )
                                     )}
-
                                 </div>
 
                                 {/* Project Links */}
                                 <div className="project-links">
+                                    <a
+                                        href={project.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Source Code
+                                        <span aria-hidden="true"> ↗</span>
+                                    </a>
 
-                                    {/* GitHub */}
-                                    {project.github !== "#" ? (
-                                        <a
-                                            href={project.github}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            GitHub ↗
-                                        </a>
-                                    ) : (
-                                        <a
-                                            href="#"
-                                            onClick={(e) =>
-                                                e.preventDefault()
-                                            }
-                                        >
-                                            GitHub ↗
-                                        </a>
-                                    )}
-
-                                    {/* Live Demo */}
-                                    {project.live !== "#" ? (
-                                        <a
-                                            href={project.live}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            Live Demo ↗
-                                        </a>
-                                    ) : (
-                                        <a
-                                            href="#"
-                                            onClick={(e) =>
-                                                e.preventDefault()
-                                            }
-                                        >
-                                            Live Demo ↗
-                                        </a>
-                                    )}
-
+                                    <a
+                                        href={project.live}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="project-live-link"
+                                    >
+                                        Live Demo
+                                        <span aria-hidden="true"> ↗</span>
+                                    </a>
                                 </div>
 
+                                {/* Details Button */}
+                                <button
+                                    type="button"
+                                    className="project-details-button"
+                                    onClick={() =>
+                                        setSelectedProject(project)
+                                    }
+                                >
+                                    Explore project
+                                    <span aria-hidden="true">→</span>
+                                </button>
                             </div>
-
                         </article>
                     ))}
-
                 </div>
-
             </div>
+
+            {/* Project Details Modal */}
+            {selectedProject && (
+                <div
+                    className="project-modal-backdrop"
+                    onMouseDown={(event) => {
+                        if (event.target === event.currentTarget) {
+                            setSelectedProject(null);
+                        }
+                    }}
+                >
+                    <section
+                        className="project-modal"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="project-modal-title"
+                    >
+                        <button
+                            type="button"
+                            className="project-modal-close"
+                            onClick={() => setSelectedProject(null)}
+                            aria-label="Close project details"
+                        >
+                            ×
+                        </button>
+
+                        <img
+                            src={selectedProject.image}
+                            alt={selectedProject.imageAlt}
+                            className="project-modal-image"
+                        />
+
+                        <div className="project-modal-content">
+                            <p className="project-category">
+                                {selectedProject.category}
+                            </p>
+
+                            <h2 id="project-modal-title">
+                                {selectedProject.title}
+                            </h2>
+
+                            <p>
+                                {selectedProject.details}
+                            </p>
+
+                            <h3>Technologies Used</h3>
+
+                            <div className="project-technologies">
+                                {selectedProject.technologies.map(
+                                    (technology) => (
+                                        <span key={technology}>
+                                            {technology}
+                                        </span>
+                                    )
+                                )}
+                            </div>
+
+                            <div className="project-modal-actions">
+                                <a
+                                    href={selectedProject.github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    View Source Code ↗
+                                </a>
+
+                                <a
+                                    href={selectedProject.live}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="project-live-link"
+                                >
+                                    Open Live Demo ↗
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            )}
         </section>
     );
 }
